@@ -36,7 +36,7 @@ class ExtensionKeywordListener(EventListener):
 
         try:
             response = urllib.request.urlopen(req)
-            result_types = json.loads(response.read())
+            result_types = json.loads(response.read().decode('utf-8'))
         except urllib.error.HTTPError as e:
             if e.code == 401:
                 results.append(
